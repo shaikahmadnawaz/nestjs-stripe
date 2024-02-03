@@ -9,6 +9,6 @@ export class InMemoryDbService {
   }
 
   getAllEvents(): any[] {
-    return this.events;
+    return this.events.slice().reverse();
   }
 }

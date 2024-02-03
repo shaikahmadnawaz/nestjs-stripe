@@ -11,6 +11,7 @@ const EventLogs = () => {
           "https://nestjs-stripe.onrender.com/stripe/events"
         );
         setEventLogs(response.data);
+        console.log("Event logs:", response.data);
       } catch (error) {
         console.error("Error fetching event logs:", error);
       }
@@ -39,6 +40,10 @@ const EventLogs = () => {
             <p>
               <span className="font-bold">PaymentIntent ID:</span>{" "}
               {event.paymentIntentId}
+            </p>
+            <p>
+              <span className="font-bold">Time and Date:</span>{" "}
+              {new Date(event.timestamp).toLocaleString()}
             </p>
           </div>
         ))}

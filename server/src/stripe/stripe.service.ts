@@ -18,11 +18,15 @@ export class StripeService {
       currency,
     });
 
+    const now = new Date();
+    const timestamp = now.toISOString();
+
     this.inMemoryDbService.addEvent({
       type: 'payment',
       amount: paymentIntent.amount,
       currency: paymentIntent.currency,
       paymentIntentId: paymentIntent.id,
+      timestamp,
     });
 
     return paymentIntent;
