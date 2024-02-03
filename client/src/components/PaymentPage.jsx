@@ -6,7 +6,7 @@ import { toast } from "react-hot-toast";
 import { Link } from "react-router-dom";
 
 const PaymentPage = () => {
-  const [amount, setAmount] = useState();
+  const [amount, setAmount] = useState("");
   const [loading, setLoading] = useState(false);
   const stripe = useStripe();
   const elements = useElements();
@@ -30,6 +30,11 @@ const PaymentPage = () => {
     event.preventDefault();
 
     if (!stripe || !elements) {
+      return;
+    }
+
+    if (!amount || isNaN(amount) || parseFloat(amount) <= 0) {
+      toast.error("Invalid amount. Please enter a valid positive number.");
       return;
     }
 
