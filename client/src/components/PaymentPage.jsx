@@ -2,6 +2,7 @@ import { useState } from "react";
 import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js";
 import axios from "axios";
 import { Loader2 } from "lucide-react";
+import { toast } from "react-hot-toast";
 
 const PaymentPage = () => {
   const [amount, setAmount] = useState();
@@ -54,10 +55,15 @@ const PaymentPage = () => {
     setLoading(false);
 
     if (result.error) {
+      toast.error(result.error.message);
       console.error(result.error.message);
     } else {
       if (result.paymentIntent.status === "succeeded") {
+        toast.success("Payment successful!");
         console.log("Payment successful!");
+
+        setAmount("");
+        elements.clear();
       }
     }
   };
