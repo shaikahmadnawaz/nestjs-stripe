@@ -85,6 +85,15 @@ Visit `http://localhost:5173` in your browser to access the Stripe payment page.
 
 To view event logs, navigate to `http://localhost:5173/event-logs`.
 
+## Issues:
+
+I encountered a specific error related to international payments, in line with Indian regulations. The error states that only registered Indian businesses can accept international payments. I have reviewed my Stripe account settings and ensured compliance with the regulations, but the issue persists.
+
+![image](https://github.com/shaikahmadnawaz/react-nestjs-stripe/assets/96189881/5c8c136f-d39f-40a4-a71f-715472e32e20)
+
+![image](https://github.com/shaikahmadnawaz/react-nestjs-stripe/assets/96189881/77079ac7-6f0d-40bf-8ea2-966f9913a745)
+
+
 ## Additional Information
 
 - Make sure to use test API keys during development.
