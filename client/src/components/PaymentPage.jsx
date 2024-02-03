@@ -3,6 +3,7 @@ import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js";
 import axios from "axios";
 import { Loader2 } from "lucide-react";
 import { toast } from "react-hot-toast";
+import { Link } from "react-router-dom";
 
 const PaymentPage = () => {
   const [amount, setAmount] = useState();
@@ -94,13 +95,21 @@ const PaymentPage = () => {
           </label>
           <br />
 
-          <button
-            type="submit"
-            className="inline-flex items-center justify-center w-full px-2 py-3 space-x-1 text-xs font-semibold text-center text-white bg-black rounded-sm shadow-md"
-            disabled={loading}
-          >
-            {loading ? <Loader2 className="w-4 h-4 animate-spin" /> : "Pay"}
-          </button>
+          <div className="flex items-center justify-between gap-x-2">
+            <button
+              type="submit"
+              className="inline-flex items-center justify-center w-full px-2 py-3 space-x-1 text-xs font-semibold text-center text-white bg-black rounded-sm shadow-md"
+              disabled={loading}
+            >
+              {loading ? <Loader2 className="w-4 h-4 animate-spin" /> : "Pay"}
+            </button>
+            <Link
+              to="/event-logs"
+              className="inline-flex items-center justify-center w-full px-2 py-3 space-x-1 text-xs font-semibold text-center text-white bg-black rounded-sm shadow-md"
+            >
+              View Event Logs
+            </Link>
+          </div>
         </form>
       </div>
     </div>
