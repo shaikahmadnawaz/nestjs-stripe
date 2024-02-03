@@ -14,7 +14,7 @@ export class StripeService {
 
   createPaymentIntent(amount: number, currency: string) {
     return this.stripe.paymentIntents.create({
-      amount,
+      amount: amount * 100,
       currency,
     });
   }

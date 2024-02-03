@@ -6,8 +6,7 @@ const stripePromise = loadStripe(import.meta.env.VITE_STRIPE_PUBLISHABLE_KEY);
 
 const App = () => {
   return (
-    <div>
-      <h1>Your Stripe Payment App</h1>
+    <div className="mx-auto">
       <Elements stripe={stripePromise}>
         <PaymentPage />
       </Elements>
