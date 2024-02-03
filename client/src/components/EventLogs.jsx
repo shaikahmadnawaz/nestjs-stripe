@@ -7,7 +7,9 @@ const EventLogs = () => {
   useEffect(() => {
     const fetchEventLogs = async () => {
       try {
-        const response = await axios.get("http://localhost:3000/stripe/events");
+        const response = await axios.get(
+          "https://nestjs-stripe.onrender.com/stripe/events"
+        );
         setEventLogs(response.data);
       } catch (error) {
         console.error("Error fetching event logs:", error);

@@ -41,10 +41,13 @@ const PaymentPage = () => {
     setLoading(true);
 
     const currency = "inr";
-    const response = await axios.post("http://localhost:3000/stripe", {
-      amount,
-      currency,
-    });
+    const response = await axios.post(
+      "https://nestjs-stripe.onrender.com/stripe",
+      {
+        amount,
+        currency,
+      }
+    );
 
     const result = await stripe.confirmCardPayment(
       response.data.client_secret,
